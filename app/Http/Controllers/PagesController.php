@@ -29,6 +29,12 @@ class PagesController extends Controller
         ]);
         */
 
+        // найти данные по идентификатору
+        $todo = Todo::find(1);
+        $todo->status = 0;
+        $todo->save();
+
+        // получение всех данных из таблицы
         $todos = Todo::All();
 
         return view('todos', [

@@ -20,6 +20,8 @@
     <body class="antialiased">
         <h1>{{ $title }}</h1>
 
+        <a href="#">Выполнено</a>
+        <a href="#">Не выполнено</a>
         <ul class="list-group">
             @foreach($todos as $todo)
             <li class="list-group-item d-flex justify-content-between align-items-center">
