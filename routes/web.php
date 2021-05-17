@@ -17,3 +17,4 @@ Route::get('/', [PagesController::class, 'mainPage']);
 Route::get('/todos', [PagesController::class, 'todosPage']);
 Route::get('/todos/done', [PagesController::class, 'todosDone']);
 Route::get('/todos/not-done', [PagesController::class, 'todosNotDone']);
+Route::get('/students', [PagesController::class, 'studentsPage']);

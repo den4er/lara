@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Todo;
+use App\Models\Student;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -72,4 +74,14 @@ class PagesController extends Controller
         ]);
     }
 
+    public function studentsPage()
+    {
+        // выбираем все данные из таблицы
+        $students = Student::all();
+
+        return view('students', [
+           'title' => 'Список студентов',
+            'students' => $students,
+        ]);
+    }
 }
