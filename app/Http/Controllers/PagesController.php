@@ -74,6 +74,13 @@ class PagesController extends Controller
         ]);
     }
 
+
+    /*
+     *
+     * методы для работы со студентами
+     *
+     */
+
     public function studentsPage()
     {
         // выбираем все данные из таблицы
@@ -81,6 +88,37 @@ class PagesController extends Controller
 
         return view('students', [
            'title' => 'Список студентов',
+            'students' => $students,
+        ]);
+    }
+
+    public function studentsFirst()
+    {
+
+        $students = Student::where('course_number', 1)->get();
+
+        return view('students', [
+            'title' => 'Список студентов 1 курса',
+            'students' => $students,
+        ]);
+    }
+
+    public function studentsSecond()
+    {
+        $students = Student::where('course_number', 2)->get();
+
+        return view('students', [
+            'title' => 'Список студентов 2 курса',
+            'students' => $students,
+        ]);
+    }
+
+    public function studentsThird()
+    {
+        $students = Student::where('course_number', 3)->get();
+
+        return view('students', [
+            'title' => 'Список студентов 3 курса',
             'students' => $students,
         ]);
     }

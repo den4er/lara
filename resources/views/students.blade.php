@@ -18,11 +18,22 @@
 <body class="antialiased">
     <h1>{{ $title }}</h1>
 
-    <ul class="list-group">
-        @foreach($students as $student)
-            <li class="list-group-item d-flex justify-content-between align-items-center">
+    <a href="/students">Все студенты</a>
+    <a href="/students/first-cource">1 курс</a>
+    <a href="/students/second-cource">2 курс</a>
+    <a href="/students/third-cource">3 курс</a>
 
-                    <p style="color: #6d6d6d;">{{ $student->first_name }}</p>
+    <ul class="list-group" style="display: flex">
+        @foreach($students as $student)
+            <li class="list-group-item d-flex justify-content-between align-items-center" style="color: #6d6d6d; list-style: none; margin: 10px; padding: 10px; background: #ceebf8;">
+
+
+                <p>Имя: {{ $student->first_name }}</p>
+                <p>Фамилия: {{ $student->last_name }}</p>
+                <p>Возраст: {{ $student->age }}</p>
+                <p>Группа: {{ $student->group_number }}</p>
+                <p>Курс: {{ $student->course_number }}</p>
+                <p>Специальность: {{ $student->specialty }}</p>
 
             </li>
         @endforeach
