@@ -18,6 +18,7 @@
 <body class="antialiased">
     <h1>{{ $title }}</h1>
 
+    <a href="/">Главная страница</a>
     <a href="/students">Все студенты</a>
     <a href="/students/first-cource">1 курс</a>
     <a href="/students/second-cource">2 курс</a>

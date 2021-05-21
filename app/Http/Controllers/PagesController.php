@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Todo;
 use App\Models\Student;
+use App\Models\Article;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -122,4 +123,35 @@ class PagesController extends Controller
             'students' => $students,
         ]);
     }
+
+    /*
+     *
+     * методы для работы с блогом
+     *
+     */
+    public function blogPage()
+    {
+
+        $articles = Article::all();
+
+        return view('blog', [
+           'title' => 'Список статей',
+            'articles' => $articles,
+        ]);
+    }
+
+    public function articlePage($id)
+    {
+        $article = Article::find($id);
+
+        if(!$article)
+        {
+            return abort(404);
+        }
+
+        return view('article', [
+            'article' => $article,
+        ]);
+    }
+
 }

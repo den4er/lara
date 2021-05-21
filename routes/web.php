@@ -13,12 +13,33 @@ use App\Http\Controllers\PagesController;
 |
 */
 
+
+/*
+ *
+ *  маршруты списка дел
+ *
+ */
 Route::get('/', [PagesController::class, 'mainPage']);
 Route::get('/todos', [PagesController::class, 'todosPage']);
 Route::get('/todos/done', [PagesController::class, 'todosDone']);
 Route::get('/todos/not-done', [PagesController::class, 'todosNotDone']);
 
+
+/*
+ *
+ *  маршруты списка студентов
+ *
+ */
 Route::get('/students', [PagesController::class, 'studentsPage']);
 Route::get('/students/first-cource', [PagesController::class, 'studentsFirst']);
 Route::get('/students/second-cource', [PagesController::class, 'studentsSecond']);
 Route::get('/students/third-cource', [PagesController::class, 'studentsThird']);
+
+
+/*
+ *
+ *  маршруты списка блога
+ *
+ */
+Route::get('/articles', [PagesController::class, 'blogPage']);
+Route::get('/article/{id}', [PagesController::class, 'articlePage']);

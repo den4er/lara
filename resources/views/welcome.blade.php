@@ -23,5 +23,7 @@
         <a href="/todos/done">Выполнено</a>
         <a href="/todos/not-done">Не выполнено</a>
 
+        <a href="/students">Список студентов</a>
+
     </body>
 </html>
