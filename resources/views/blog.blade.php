@@ -20,6 +20,19 @@
     <body class="antialiased">
         <h1>{{ $title }}</h1>
 
+        <form class="mb-5" method="post" action="/article">
+            @csrf
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" name="title" class="form-control" id="title">
+            </div>
+            <div class="mb-3">
+                <label for="body" class="form-label">Content</label>
+                <textarea name="body" class="form-control" id="body" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Add article</button>
+        </form>
+
         <div class="list-group">
             @foreach($articles as $article)
             <a href="/article/{{ $article->id }}" class="list-group-item list-group-item-action" aria-current="true">
@@ -29,6 +42,14 @@
                 </div>
                 <p class="mb-1">{{ $article->body }}</p>
             </a>
+
+            {{-- форма для удаления статьи  --}}
+            <form action="/article/delete" method="post">
+                @csrf
+                <input type="hidden" name="id" value="{{ $article->id }}">
+                <button class="btn btn-danger mt-3 mb-3" style="width: 100px">Delete</button>
+            </form>
+
             @endforeach
         </div>
 

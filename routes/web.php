@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\ArticlesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,8 +39,17 @@ Route::get('/students/third-cource', [PagesController::class, 'studentsThird']);
 
 /*
  *
- *  маршруты списка блога
+ *  маршруты блога
  *
  */
 Route::get('/articles', [PagesController::class, 'blogPage']);
 Route::get('/article/{id}', [PagesController::class, 'articlePage']);
+
+
+/*
+ *
+ *  маршруты добавления постов
+ *
+ */
+Route::post('/article', [ArticlesController::class, 'store']);
+Route::post('/article/delete', [ArticlesController::class, 'destroy']);
