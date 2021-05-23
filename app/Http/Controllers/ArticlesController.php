@@ -8,11 +8,11 @@ use App\Models\Article;
 class ArticlesController extends Controller
 {
 
-    // метод обработки формы, ему передаем объект класса Request
+    // метод обработки формы добавления статьи, ему передаем объект класса Request
     public function store(Request $request)
     {
         // берем только заголовок и текст статьи
-        $data = $request->only('title', 'body');
+        $data = $request->only(['title', 'body']);
 
         // записываем данные в базу
         $article = Article::create([
@@ -27,6 +27,7 @@ class ArticlesController extends Controller
         }
     }
 
+    // метод для удаления статьи
     public function destroy(Request $request)
     {
         // ищем статью в базе по идентификатору
@@ -44,5 +45,24 @@ class ArticlesController extends Controller
 
         // возвращаемся назад
         return redirect()->back();
+    }
+
+    // запись изменения статьи в бд
+    public function update(Request $request)
+    {
+        $data = $request->only(['id', 'title', 'body']);
+
+        $article = Article::find($data['id']);
+
+        if(!$article)
+        {
+            return abort(404);
+        }
+
+        $article->title = $data['title'];
+        $article->body = $data['body'];
+        $article->save();
+
+        return redirect()->to('/articles');
     }
 }

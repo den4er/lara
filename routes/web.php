@@ -48,8 +48,10 @@ Route::get('/article/{id}', [PagesController::class, 'articlePage']);
 
 /*
  *
- *  маршруты добавления постов
+ *  маршруты работы с постами
  *
  */
 Route::post('/article', [ArticlesController::class, 'store']);
 Route::post('/article/delete', [ArticlesController::class, 'destroy']);
+Route::get('/article/{id}/update', [PagesController::class, 'articleUpdatePage']);// страница для измнения текста статьи
+Route::post('/article/update', [ArticlesController::class, 'update']); // само обновление статьи

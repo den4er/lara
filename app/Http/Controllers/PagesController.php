@@ -154,4 +154,19 @@ class PagesController extends Controller
         ]);
     }
 
+    public function articleUpdatePage($id)
+    {
+        $article = Article::find($id);
+
+        if(!$article)
+        {
+            return abort(404);
+        }
+
+        return view('article_update', [
+           'title' => 'Изменение статьи',
+           'article' => $article,
+        ]);
+    }
+
 }
